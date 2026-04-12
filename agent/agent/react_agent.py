@@ -1,10 +1,15 @@
-from langchain.agents import create_agent
-from oauthlib.uri_validate import query
+# react_agent.py
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 
-from Agent智能体.agent项目.model.factory import chat_model_factory
-from Agent智能体.agent项目.utils.prompt_loader import load_system_prompts
-from Agent智能体.agent项目.tools.agent_tools import rag_summarize,get_weather,get_user_id,get_user_location,get_current_month,fetch_external_data,fill_context_for_report
-from Agent智能体.agent项目.tools.middleware import monitor_tool,log_before_model,report_prompt_switch
+
+
+from langchain.agents import create_agent
+from Agent.agent.model.factory import chat_model_factory
+from Agent.agent.utils.prompt_loader import load_system_prompts
+from Agent.agent.agent.tools.agent_tools import rag_summarize,get_weather,get_user_id,get_user_location,get_current_month,fetch_external_data,fill_context_for_report
+from Agent.agent.agent.tools.middleware import monitor_tool,log_before_model,report_prompt_switch
 
 class ReactAgent:
     def __init__(self):
